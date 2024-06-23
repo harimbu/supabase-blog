@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react'
-import { supabase } from '../conf/supabase'
+import { useEffect, useState } from 'react'
+import { supabase } from '../config/supabase'
 import Post from '../components/Post'
 
 export default function Home() {
@@ -7,18 +7,17 @@ export default function Home() {
 
   useEffect(() => {
     async function getPosts() {
-      const { data, error } = await supabase.from('posts').select('*')
-      if (error) console.log(error)
-      if (data) setPosts(data)
+      const { data: posts } = await supabase.from('posts').select('*')
+      setPosts(posts)
     }
     getPosts()
   }, [])
 
   return (
-    <>
+    <div className='posts'>
       {posts.map(post => (
         <Post key={post.id} post={post} />
       ))}
-    </>
+    </div>
   )
 }

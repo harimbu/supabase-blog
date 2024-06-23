@@ -1,10 +1,14 @@
+import { Link } from 'react-router-dom'
+
 export default function Header() {
   return (
     <>
       <header>
-        <h1 className='logo'>supa blog</h1>
-        <button>write</button>
-        <button>login</button>
+        <Link to={'/'} className='logo'>
+          Supa-blog
+        </Link>
+        <Link to={'/create'}>write</Link>
+        <Link to={'/login'}>login</Link>
       </header>
     </>
   )
