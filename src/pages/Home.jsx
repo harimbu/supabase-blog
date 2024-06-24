@@ -5,6 +5,10 @@ import Post from '../components/Post'
 export default function Home() {
   const [posts, setPosts] = useState([])
 
+  function handleDelete(id) {
+    setPosts(prev => prev.filter(item => item.id !== id))
+  }
+
   useEffect(() => {
     async function getPosts() {
       const { data: posts } = await supabase.from('posts').select('*')
@@ -16,7 +20,7 @@ export default function Home() {
   return (
     <div className='posts'>
       {posts.map(post => (
-        <Post key={post.id} post={post} />
+        <Post key={post.id} post={post} onDelete={handleDelete} />
       ))}
     </div>
   )

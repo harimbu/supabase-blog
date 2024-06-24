@@ -13,7 +13,10 @@ export default function Update() {
   async function handleSubmit(e) {
     e.preventDefault()
 
-    await supabase.from('posts').update({ title, content, rating }).eq('id', post.id)
+    await supabase
+      .from('posts')
+      .update({ title, content, rating })
+      .eq('id', post.id)
 
     navigate('/')
   }
@@ -30,6 +33,7 @@ export default function Update() {
         type='text'
         placeholder='content'
         value={content}
+        rows={8}
         onChange={e => setContent(e.target.value)}
       />
       <input

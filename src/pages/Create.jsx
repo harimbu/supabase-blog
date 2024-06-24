@@ -26,6 +26,7 @@ export default function Create() {
         type='text'
         placeholder='content'
         value={content}
+        rows={8}
         onChange={e => setContent(e.target.value)}
       />
       <input

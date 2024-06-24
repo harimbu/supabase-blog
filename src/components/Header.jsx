@@ -5,10 +5,17 @@ export default function Header() {
     <>
       <header>
         <Link to={'/'} className='logo'>
-          Supa-blog
+          Blog
         </Link>
-        <Link to={'/create'}>write</Link>
-        <Link to={'/login'}>login</Link>
+        <Link to={'/create'}>
+          <button>write</button>
+        </Link>
+        <Link to={'/login'}>
+          <button>login</button>
+        </Link>
+        <Link to={'/register'}>
+          <button>register</button>
+        </Link>
       </header>
     </>
   )
